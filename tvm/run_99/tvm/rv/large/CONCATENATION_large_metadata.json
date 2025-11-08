@@ -1,0 +1,7 @@
+{
+  "op_name": "CONCATENATION",
+  "size": "large",
+  "platform": "rv",
+  "conversion_method": "tflite_to_tvm",
+  "export_time": "2025-10-31T14:17:47"
+}

@@ -1,0 +1,72 @@
+{
+  "nodes": [
+    {
+      "op": "null", 
+      "name": "serving_default_input_0:0", 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "serving_default_input_1:0", 
+      "inputs": []
+    }, 
+    {
+      "op": "tvm_op", 
+      "name": "tvmgen_default_fused_multiply", 
+      "attrs": {
+        "num_outputs": "1", 
+        "num_inputs": "2", 
+        "flatten_data": "0", 
+        "func_name": "tvmgen_default_fused_multiply", 
+        "hash": "eddeb641bc472892"
+      }, 
+      "inputs": [
+        [
+          0, 
+          0, 
+          0
+        ], 
+        [
+          1, 
+          0, 
+          0
+        ]
+      ]
+    }
+  ], 
+  "arg_nodes": [0, 1], 
+  "heads": [
+    [
+      2, 
+      0, 
+      0
+    ]
+  ], 
+  "attrs": {
+    "dltype": [
+      "list_str", 
+      [
+        "float32", 
+        "float32", 
+        "float32"
+      ]
+    ], 
+    "device_index": [
+      "list_int", 
+      [1, 1, 1]
+    ], 
+    "storage_id": [
+      "list_int", 
+      [0, 1, 2]
+    ], 
+    "shape": [
+      "list_shape", 
+      [
+        [1, 4, 4, 8, 4], 
+        [1, 4, 4, 8, 4], 
+        [1, 4, 4, 8, 4]
+      ]
+    ]
+  }, 
+  "node_row_ptr": [0, 1, 2, 3]
+}

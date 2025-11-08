@@ -1,0 +1,7 @@
+{
+  "op_name": "L2_NORMALIZATION",
+  "size": "large",
+  "platform": "rv",
+  "conversion_method": "tflite_to_tvm",
+  "export_time": "2025-10-31T14:19:29"
+}

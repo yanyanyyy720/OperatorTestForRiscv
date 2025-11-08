@@ -1,0 +1,87 @@
+{
+  "nodes": [
+    {
+      "op": "null", 
+      "name": "serving_default_input_0:0", 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "p0", 
+      "inputs": []
+    }, 
+    {
+      "op": "null", 
+      "name": "p1", 
+      "inputs": []
+    }, 
+    {
+      "op": "tvm_op", 
+      "name": "tvmgen_default_fused_nn_conv2d_add", 
+      "attrs": {
+        "num_outputs": "1", 
+        "num_inputs": "3", 
+        "flatten_data": "0", 
+        "func_name": "tvmgen_default_fused_nn_conv2d_add", 
+        "out_layout": "", 
+        "data_layout": "NHWC", 
+        "kernel_layout": "HWIO", 
+        "hash": "8a228d9ac860da32"
+      }, 
+      "inputs": [
+        [
+          0, 
+          0, 
+          0
+        ], 
+        [
+          1, 
+          0, 
+          0
+        ], 
+        [
+          2, 
+          0, 
+          0
+        ]
+      ]
+    }
+  ], 
+  "arg_nodes": [0, 1, 2], 
+  "heads": [
+    [
+      3, 
+      0, 
+      0
+    ]
+  ], 
+  "attrs": {
+    "dltype": [
+      "list_str", 
+      [
+        "float32", 
+        "float32", 
+        "float32", 
+        "float32"
+      ]
+    ], 
+    "device_index": [
+      "list_int", 
+      [1, 1, 1, 1]
+    ], 
+    "storage_id": [
+      "list_int", 
+      [0, 1, 2, 3]
+    ], 
+    "shape": [
+      "list_shape", 
+      [
+        [1, 64, 64, 3], 
+        [7, 7, 3, 32], 
+        [1, 1, 1, 32], 
+        [1, 32, 32, 32]
+      ]
+    ]
+  }, 
+  "node_row_ptr": [0, 1, 2, 3, 4]
+}

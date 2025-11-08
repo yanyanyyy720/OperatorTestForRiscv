@@ -1,0 +1,60 @@
+{
+  "nodes": [
+    {
+      "op": "null", 
+      "name": "serving_default_input_0:0", 
+      "inputs": []
+    }, 
+    {
+      "op": "tvm_op", 
+      "name": "tvmgen_default_fused_exp", 
+      "attrs": {
+        "num_outputs": "1", 
+        "num_inputs": "1", 
+        "flatten_data": "0", 
+        "func_name": "tvmgen_default_fused_exp", 
+        "hash": "65d9d519646a2ecd"
+      }, 
+      "inputs": [
+        [
+          0, 
+          0, 
+          0
+        ]
+      ]
+    }
+  ], 
+  "arg_nodes": [0], 
+  "heads": [
+    [
+      1, 
+      0, 
+      0
+    ]
+  ], 
+  "attrs": {
+    "dltype": [
+      "list_str", 
+      [
+        "float32", 
+        "float32"
+      ]
+    ], 
+    "device_index": [
+      "list_int", 
+      [1, 1]
+    ], 
+    "storage_id": [
+      "list_int", 
+      [0, 1]
+    ], 
+    "shape": [
+      "list_shape", 
+      [
+        [1, 4, 4, 8, 4], 
+        [1, 4, 4, 8, 4]
+      ]
+    ]
+  }, 
+  "node_row_ptr": [0, 1, 2]
+}

@@ -1,0 +1,60 @@
+{
+  "nodes": [
+    {
+      "op": "null", 
+      "name": "serving_default_input_0:0", 
+      "inputs": []
+    }, 
+    {
+      "op": "tvm_op", 
+      "name": "tvmgen_default_fused_cast", 
+      "attrs": {
+        "num_outputs": "1", 
+        "num_inputs": "1", 
+        "flatten_data": "0", 
+        "func_name": "tvmgen_default_fused_cast", 
+        "hash": "b6de6760947a49ba"
+      }, 
+      "inputs": [
+        [
+          0, 
+          0, 
+          0
+        ]
+      ]
+    }
+  ], 
+  "arg_nodes": [0], 
+  "heads": [
+    [
+      1, 
+      0, 
+      0
+    ]
+  ], 
+  "attrs": {
+    "dltype": [
+      "list_str", 
+      [
+        "float32", 
+        "int64"
+      ]
+    ], 
+    "device_index": [
+      "list_int", 
+      [1, 1]
+    ], 
+    "storage_id": [
+      "list_int", 
+      [0, 1]
+    ], 
+    "shape": [
+      "list_shape", 
+      [
+        [1, 16, 16, 8, 4], 
+        [1, 16, 16, 8, 4]
+      ]
+    ]
+  }, 
+  "node_row_ptr": [0, 1, 2]
+}
