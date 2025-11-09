@@ -416,3 +416,428 @@
 | softmax | 小 | TFLite | 2.6 | 0.000 | 100.0 | 8.6ms |
 | softmax | 小 | TVM | 3.6 | 82.807 | 50.0 | 10.1ms |
 | | | | | | | |
+
+# rvv与rv性能对比表
+
+| 算子 | 规模 | 框架 | 常驻内存(MB) | 缺页率(次/秒) | 用户态占比(%) | CPU时间 |
+|---|---|---|---|---|---|---|
+| ABS_large | 大 | rvv | 2.4 | 631.685 | 0.2 | 6.4ms |
+| ABS_large | 大 | TVM | 2.4 | 638.530 | 0.2 | 6.4ms |
+| | | | | | | |
+| ABS_medium | 中 | rvv | 2.4 | 630.061 | 0.1 | 6.5ms |
+| ABS_medium | 中 | TVM | 2.4 | 630.698 | 0.1 | 6.2ms |
+| | | | | | | |
+| ABS_small | 小 | rvv | 2.4 | 629.212 | 0.1 | 6.3ms |
+| ABS_small | 小 | TVM | 2.4 | 620.604 | 0.2 | 6.4ms |
+| | | | | | | |
+| ADD_large | 大 | rvv | 2.5 | 639.803 | 0.2 | 6.6ms |
+| ADD_large | 大 | TVM | 2.5 | 632.553 | 0.2 | 6.8ms |
+| | | | | | | |
+| ADD_medium | 中 | rvv | 2.5 | 632.002 | 0.1 | 6.4ms |
+| ADD_medium | 中 | TVM | 2.5 | 632.634 | 0.2 | 6.2ms |
+| | | | | | | |
+| ADD_small | 小 | rvv | 2.5 | 617.362 | 0.1 | 6.2ms |
+| ADD_small | 小 | TVM | 2.5 | 621.119 | 0.2 | 6.7ms |
+| | | | | | | |
+| AVERAGE_POOL_2D_large | 大 | rvv | 2.4 | 644.427 | 0.2 | 7.4ms |
+| AVERAGE_POOL_2D_large | 大 | TVM | 2.4 | 639.993 | 0.2 | 7.9ms |
+| | | | | | | |
+| AVERAGE_POOL_2D_medium | 中 | rvv | 2.4 | 639.643 | 0.2 | 6.9ms |
+| AVERAGE_POOL_2D_medium | 中 | TVM | 2.4 | 633.608 | 0.1 | 7.0ms |
+| | | | | | | |
+| AVERAGE_POOL_2D_small | 小 | rvv | 2.4 | 624.819 | 0.1 | 7.0ms |
+| AVERAGE_POOL_2D_small | 小 | TVM | 2.5 | 626.885 | 0.1 | 6.9ms |
+| | | | | | | |
+| CAST_large | 大 | rvv | 2.4 | 633.043 | 0.1 | 6.4ms |
+| CAST_large | 大 | TVM | 2.4 | 624.530 | 0.1 | 6.2ms |
+| | | | | | | |
+| CAST_medium | 中 | rvv | 2.4 | 636.678 | 0.2 | 6.7ms |
+| CAST_medium | 中 | TVM | 2.4 | 625.664 | 0.1 | 6.6ms |
+| | | | | | | |
+| CAST_small | 小 | rvv | 2.4 | 617.106 | 0.1 | 6.1ms |
+| CAST_small | 小 | TVM | 2.4 | 614.594 | 0.1 | 6.2ms |
+| | | | | | | |
+| CEIL_large | 大 | rvv | 2.4 | 620.856 | 0.1 | 6.5ms |
+| CEIL_large | 大 | TVM | 2.4 | 634.331 | 0.2 | 6.4ms |
+| | | | | | | |
+| CEIL_medium | 中 | rvv | 2.4 | 625.909 | 0.1 | 6.8ms |
+| CEIL_medium | 中 | TVM | 2.4 | 612.227 | 0.1 | 6.3ms |
+| | | | | | | |
+| CEIL_small | 小 | rvv | 2.4 | 618.278 | 0.1 | 6.2ms |
+| CEIL_small | 小 | TVM | 2.4 | 624.964 | 0.2 | 6.6ms |
+| | | | | | | |
+| CONCATENATION_large | 大 | rvv | 2.5 | 642.879 | 0.1 | 6.7ms |
+| CONCATENATION_large | 大 | TVM | 2.5 | 641.429 | 0.2 | 6.5ms |
+| | | | | | | |
+| CONCATENATION_medium | 中 | rvv | 2.5 | 639.314 | 0.1 | 6.9ms |
+| CONCATENATION_medium | 中 | TVM | 2.5 | 634.189 | 0.2 | 6.9ms |
+| | | | | | | |
+| CONCATENATION_small | 小 | rvv | 2.5 | 633.410 | 0.2 | 6.4ms |
+| CONCATENATION_small | 小 | TVM | 2.5 | 628.135 | 0.2 | 6.2ms |
+| | | | | | | |
+| CONV_2D_large | 大 | rvv | 2.6 | 738.979 | 0.7 | 33.8ms |
+| CONV_2D_large | 大 | TVM | 2.6 | 747.619 | 0.7 | 33.1ms |
+| | | | | | | |
+| CONV_2D_medium | 中 | rvv | 2.5 | 650.237 | 0.3 | 9.8ms |
+| CONV_2D_medium | 中 | TVM | 2.5 | 655.764 | 0.2 | 9.7ms |
+| | | | | | | |
+| CONV_2D_small | 小 | rvv | 3.1 | 634.932 | 0.1 | 7.7ms |
+| CONV_2D_small | 小 | TVM | 3.1 | 640.448 | 0.2 | 7.7ms |
+| | | | | | | |
+| COS_large | 大 | rvv | 3.3 | 636.922 | 0.2 | 7.4ms |
+| COS_large | 大 | TVM | 3.3 | 641.912 | 0.2 | 7.1ms |
+| | | | | | | |
+| COS_medium | 中 | rvv | 3.1 | 635.519 | 0.2 | 6.8ms |
+| COS_medium | 中 | TVM | 3.1 | 631.423 | 0.2 | 6.7ms |
+| | | | | | | |
+| COS_small | 小 | rvv | 3.1 | 631.057 | 0.2 | 6.7ms |
+| COS_small | 小 | TVM | 3.1 | 629.836 | 0.1 | 6.9ms |
+| | | | | | | |
+| DEPTHWISE_CONV_2D_large | 大 | rvv | 2.6 | 102.862 | 0.9 | 3.5ms |
+| DEPTHWISE_CONV_2D_large | 大 | TVM | 2.6 | 101.380 | 1.0 | 3.4ms |
+| | | | | | | |
+| DEPTHWISE_CONV_2D_medium | 中 | rvv | 2.5 | 101.116 | 0.3 | 0.6ms |
+| DEPTHWISE_CONV_2D_medium | 中 | TVM | 2.5 | 77.085 | 0.3 | 0.5ms |
+| | | | | | | |
+| DEPTHWISE_CONV_2D_small | 小 | rvv | 3.1 | 97.224 | 0.2 | 0.4ms |
+| DEPTHWISE_CONV_2D_small | 小 | TVM | 3.1 | 104.488 | 0.2 | 0.4ms |
+| | | | | | | |
+| DIV_large | 大 | rvv | 2.5 | 638.265 | 0.2 | 6.7ms |
+| DIV_large | 大 | TVM | 2.5 | 644.105 | 0.2 | 6.7ms |
+| | | | | | | |
+| DIV_medium | 中 | rvv | 2.5 | 628.402 | 0.1 | 6.7ms |
+| DIV_medium | 中 | TVM | 2.5 | 631.404 | 0.2 | 6.3ms |
+| | | | | | | |
+| DIV_small | 小 | rvv | 2.5 | 631.325 | 0.2 | 6.4ms |
+| DIV_small | 小 | TVM | 2.5 | 630.863 | 0.2 | 6.4ms |
+| | | | | | | |
+| ELU_large | 大 | rvv | 3.4 | 629.684 | 0.2 | 7.4ms |
+| ELU_large | 大 | TVM | 3.4 | 626.043 | 0.2 | 8.0ms |
+| | | | | | | |
+| ELU_medium | 中 | rvv | 3.2 | 641.667 | 0.2 | 6.9ms |
+| ELU_medium | 中 | TVM | 3.2 | 639.668 | 0.2 | 6.8ms |
+| | | | | | | |
+| ELU_small | 小 | rvv | 3.2 | 633.349 | 0.2 | 6.5ms |
+| ELU_small | 小 | TVM | 3.2 | 622.389 | 0.1 | 6.4ms |
+| | | | | | | |
+| EXPAND_DIMS_large | 大 | rvv | 2.4 | 98.988 | 0.2 | 0.3ms |
+| EXPAND_DIMS_large | 大 | TVM | 2.4 | 99.312 | 0.1 | 0.3ms |
+| | | | | | | |
+| EXPAND_DIMS_medium | 中 | rvv | 2.5 | 80.268 | 0.1 | 0.3ms |
+| EXPAND_DIMS_medium | 中 | TVM | 2.4 | 59.484 | 0.1 | 0.2ms |
+| | | | | | | |
+| EXPAND_DIMS_small | 小 | rvv | 2.4 | 95.062 | 0.2 | 0.3ms |
+| EXPAND_DIMS_small | 小 | TVM | 2.4 | 68.349 | 0.1 | 0.2ms |
+| | | | | | | |
+| EXP_large | 大 | rvv | 3.4 | 634.758 | 0.2 | 7.8ms |
+| EXP_large | 大 | TVM | 3.4 | 639.824 | 0.2 | 7.2ms |
+| | | | | | | |
+| EXP_medium | 中 | rvv | 3.2 | 638.367 | 0.2 | 7.2ms |
+| EXP_medium | 中 | TVM | 3.2 | 639.587 | 0.2 | 6.7ms |
+| | | | | | | |
+| EXP_small | 小 | rvv | 3.2 | 631.310 | 0.2 | 6.6ms |
+| EXP_small | 小 | TVM | 3.2 | 626.882 | 0.1 | 6.7ms |
+| | | | | | | |
+| FLOOR_large | 大 | rvv | 2.4 | 625.102 | 0.2 | 6.9ms |
+| FLOOR_large | 大 | TVM | 2.4 | 626.920 | 0.2 | 6.7ms |
+| | | | | | | |
+| FLOOR_medium | 中 | rvv | 2.4 | 626.187 | 0.1 | 6.5ms |
+| FLOOR_medium | 中 | TVM | 2.4 | 629.819 | 0.1 | 6.4ms |
+| | | | | | | |
+| FLOOR_small | 小 | rvv | 2.4 | 624.534 | 0.1 | 6.2ms |
+| FLOOR_small | 小 | TVM | 2.4 | 616.349 | 0.2 | 6.3ms |
+| | | | | | | |
+| FULLY_CONNECTED_large | 大 | rvv | 15.0 | 695.711 | 0.3 | 18.5ms |
+| FULLY_CONNECTED_large | 大 | TVM | 15.0 | 696.456 | 0.3 | 19.2ms |
+| | | | | | | |
+| FULLY_CONNECTED_medium | 中 | rvv | 4.5 | 644.257 | 0.2 | 9.8ms |
+| FULLY_CONNECTED_medium | 中 | TVM | 4.5 | 646.862 | 0.2 | 9.7ms |
+| | | | | | | |
+| FULLY_CONNECTED_small | 小 | rvv | 3.4 | 627.319 | 0.1 | 6.6ms |
+| FULLY_CONNECTED_small | 小 | TVM | 3.4 | 624.508 | 0.1 | 6.2ms |
+| | | | | | | |
+| HARD_SWISH_large | 大 | rvv | 2.4 | 631.524 | 0.2 | 6.3ms |
+| HARD_SWISH_large | 大 | TVM | 2.5 | 634.341 | 0.2 | 6.6ms |
+| | | | | | | |
+| HARD_SWISH_medium | 中 | rvv | 2.4 | 635.576 | 0.1 | 6.3ms |
+| HARD_SWISH_medium | 中 | TVM | 2.5 | 630.426 | 0.2 | 6.4ms |
+| | | | | | | |
+| HARD_SWISH_small | 小 | rvv | 2.4 | 628.163 | 0.1 | 6.3ms |
+| HARD_SWISH_small | 小 | TVM | 2.5 | 627.321 | 0.1 | 6.4ms |
+| | | | | | | |
+| L2_NORMALIZATION_large | 大 | rvv | 2.5 | 637.576 | 0.1 | 7.6ms |
+| L2_NORMALIZATION_large | 大 | TVM | 2.5 | 637.042 | 0.1 | 6.9ms |
+| | | | | | | |
+| L2_NORMALIZATION_medium | 中 | rvv | 2.5 | 633.703 | 0.1 | 7.1ms |
+| L2_NORMALIZATION_medium | 中 | TVM | 2.5 | 629.196 | 0.1 | 7.0ms |
+| | | | | | | |
+| L2_NORMALIZATION_small | 小 | rvv | 2.5 | 629.530 | 0.2 | 7.0ms |
+| L2_NORMALIZATION_small | 小 | TVM | 2.5 | 631.524 | 0.1 | 6.7ms |
+| | | | | | | |
+| LEAKY_RELU_large | 大 | rvv | 2.4 | 634.528 | 0.1 | 6.5ms |
+| LEAKY_RELU_large | 大 | TVM | 2.4 | 640.587 | 0.2 | 6.5ms |
+| | | | | | | |
+| LEAKY_RELU_medium | 中 | rvv | 2.4 | 623.530 | 0.1 | 6.2ms |
+| LEAKY_RELU_medium | 中 | TVM | 2.4 | 623.375 | 0.2 | 6.5ms |
+| | | | | | | |
+| LEAKY_RELU_small | 小 | rvv | 2.4 | 615.293 | 0.1 | 6.3ms |
+| LEAKY_RELU_small | 小 | TVM | 2.4 | 610.294 | 0.1 | 6.4ms |
+| | | | | | | |
+| LOGISTIC_large | 大 | rvv | 3.4 | 636.850 | 0.2 | 7.7ms |
+| LOGISTIC_large | 大 | TVM | 3.4 | 637.784 | 0.2 | 7.6ms |
+| | | | | | | |
+| LOGISTIC_medium | 中 | rvv | 3.2 | 637.332 | 0.2 | 6.9ms |
+| LOGISTIC_medium | 中 | TVM | 3.2 | 632.311 | 0.2 | 6.8ms |
+| | | | | | | |
+| LOGISTIC_small | 小 | rvv | 3.2 | 627.211 | 0.1 | 6.6ms |
+| LOGISTIC_small | 小 | TVM | 3.2 | 637.352 | 0.1 | 6.5ms |
+| | | | | | | |
+| LOG_SOFTMAX_large | 大 | rvv | 3.2 | 624.810 | 0.2 | 7.5ms |
+| LOG_SOFTMAX_large | 大 | TVM | 3.2 | 635.490 | 0.2 | 7.1ms |
+| | | | | | | |
+| LOG_SOFTMAX_medium | 中 | rvv | 3.2 | 623.011 | 0.2 | 6.5ms |
+| LOG_SOFTMAX_medium | 中 | TVM | 3.2 | 619.237 | 0.1 | 6.5ms |
+| | | | | | | |
+| LOG_SOFTMAX_small | 小 | rvv | 3.2 | 642.637 | 0.2 | 6.8ms |
+| LOG_SOFTMAX_small | 小 | TVM | 3.2 | 639.430 | 0.2 | 6.6ms |
+| | | | | | | |
+| LOG_large | 大 | rvv | 3.3 | 626.681 | 0.2 | 7.4ms |
+| LOG_large | 大 | TVM | 3.4 | 639.747 | 0.2 | 7.0ms |
+| | | | | | | |
+| LOG_medium | 中 | rvv | 3.2 | 630.271 | 0.1 | 6.9ms |
+| LOG_medium | 中 | TVM | 3.2 | 632.854 | 0.2 | 6.6ms |
+| | | | | | | |
+| LOG_small | 小 | rvv | 3.2 | 616.323 | 0.1 | 6.6ms |
+| LOG_small | 小 | TVM | 3.2 | 635.328 | 0.1 | 6.7ms |
+| | | | | | | |
+| MAXIMUM_large | 大 | rvv | 2.5 | 633.437 | 0.2 | 6.5ms |
+| MAXIMUM_large | 大 | TVM | 2.5 | 635.577 | 0.2 | 6.6ms |
+| | | | | | | |
+| MAXIMUM_medium | 中 | rvv | 2.5 | 626.522 | 0.1 | 6.4ms |
+| MAXIMUM_medium | 中 | TVM | 2.5 | 635.217 | 0.2 | 6.5ms |
+| | | | | | | |
+| MAXIMUM_small | 小 | rvv | 2.5 | 629.703 | 0.1 | 6.5ms |
+| MAXIMUM_small | 小 | TVM | 2.5 | 635.243 | 0.1 | 6.3ms |
+| | | | | | | |
+| MAX_POOL_2D_large | 大 | rvv | 2.4 | 630.538 | 0.2 | 6.8ms |
+| MAX_POOL_2D_large | 大 | TVM | 2.4 | 636.654 | 0.2 | 7.2ms |
+| | | | | | | |
+| MAX_POOL_2D_medium | 中 | rvv | 2.4 | 625.766 | 0.2 | 6.3ms |
+| MAX_POOL_2D_medium | 中 | TVM | 2.4 | 625.008 | 0.2 | 6.4ms |
+| | | | | | | |
+| MAX_POOL_2D_small | 小 | rvv | 2.4 | 622.572 | 0.2 | 6.5ms |
+| MAX_POOL_2D_small | 小 | TVM | 2.5 | 620.486 | 0.2 | 6.3ms |
+| | | | | | | |
+| MEAN_large | 大 | rvv | 2.4 | 638.326 | 0.2 | 7.2ms |
+| MEAN_large | 大 | TVM | 2.4 | 644.740 | 0.2 | 7.2ms |
+| | | | | | | |
+| MEAN_medium | 中 | rvv | 2.4 | 631.114 | 0.2 | 7.0ms |
+| MEAN_medium | 中 | TVM | 2.4 | 629.178 | 0.2 | 6.9ms |
+| | | | | | | |
+| MEAN_small | 小 | rvv | 2.4 | 626.170 | 0.1 | 6.4ms |
+| MEAN_small | 小 | TVM | 2.4 | 635.619 | 0.2 | 6.3ms |
+| | | | | | | |
+| MINIMUM_large | 大 | rvv | 2.5 | 648.017 | 0.1 | 7.0ms |
+| MINIMUM_large | 大 | TVM | 2.5 | 623.202 | 0.2 | 6.5ms |
+| | | | | | | |
+| MINIMUM_medium | 中 | rvv | 2.5 | 634.821 | 0.2 | 6.6ms |
+| MINIMUM_medium | 中 | TVM | 2.5 | 629.135 | 0.1 | 6.7ms |
+| | | | | | | |
+| MINIMUM_small | 小 | rvv | 2.5 | 625.981 | 0.1 | 6.2ms |
+| MINIMUM_small | 小 | TVM | 2.5 | 619.983 | 0.1 | 6.3ms |
+| | | | | | | |
+| MUL_large | 大 | rvv | 2.5 | 645.896 | 0.2 | 6.6ms |
+| MUL_large | 大 | TVM | 2.5 | 641.496 | 0.1 | 6.3ms |
+| | | | | | | |
+| MUL_medium | 中 | rvv | 2.5 | 634.873 | 0.1 | 6.4ms |
+| MUL_medium | 中 | TVM | 2.5 | 630.992 | 0.1 | 6.5ms |
+| | | | | | | |
+| MUL_small | 小 | rvv | 2.5 | 639.322 | 0.1 | 6.2ms |
+| MUL_small | 小 | TVM | 2.5 | 628.033 | 0.1 | 6.5ms |
+| | | | | | | |
+| NEG_large | 大 | rvv | 2.4 | 628.401 | 0.1 | 7.0ms |
+| NEG_large | 大 | TVM | 2.4 | 632.509 | 0.2 | 6.5ms |
+| | | | | | | |
+| NEG_medium | 中 | rvv | 2.4 | 628.306 | 0.1 | 6.5ms |
+| NEG_medium | 中 | TVM | 2.4 | 615.749 | 0.1 | 6.0ms |
+| | | | | | | |
+| NEG_small | 小 | rvv | 2.4 | 614.510 | 0.1 | 6.1ms |
+| NEG_small | 小 | TVM | 2.4 | 614.768 | 0.1 | 6.3ms |
+| | | | | | | |
+| RELU6_large | 大 | rvv | 2.4 | 620.922 | 0.1 | 6.5ms |
+| RELU6_large | 大 | TVM | 2.4 | 630.977 | 0.2 | 6.4ms |
+| | | | | | | |
+| RELU6_medium | 中 | rvv | 2.4 | 623.167 | 0.1 | 6.1ms |
+| RELU6_medium | 中 | TVM | 2.4 | 617.450 | 0.2 | 6.2ms |
+| | | | | | | |
+| RELU6_small | 小 | rvv | 2.4 | 611.054 | 0.2 | 6.2ms |
+| RELU6_small | 小 | TVM | 2.4 | 620.319 | 0.1 | 6.3ms |
+| | | | | | | |
+| RELU_large | 大 | rvv | 2.4 | 635.002 | 0.1 | 6.4ms |
+| RELU_large | 大 | TVM | 2.4 | 621.294 | 0.1 | 6.6ms |
+| | | | | | | |
+| RELU_medium | 中 | rvv | 2.4 | 617.389 | 0.2 | 6.2ms |
+| RELU_medium | 中 | TVM | 2.4 | 620.133 | 0.1 | 6.1ms |
+| | | | | | | |
+| RELU_small | 小 | rvv | 2.4 | 629.129 | 0.1 | 6.3ms |
+| RELU_small | 小 | TVM | 2.4 | 619.703 | 0.1 | 6.3ms |
+| | | | | | | |
+| ROUND_large | 大 | rvv | 2.4 | 628.087 | 0.1 | 6.6ms |
+| ROUND_large | 大 | TVM | 2.4 | 621.335 | 0.2 | 6.7ms |
+| | | | | | | |
+| ROUND_medium | 中 | rvv | 2.4 | 615.635 | 0.1 | 6.7ms |
+| ROUND_medium | 中 | TVM | 2.4 | 616.323 | 0.1 | 6.4ms |
+| | | | | | | |
+| ROUND_small | 小 | rvv | 2.4 | 620.540 | 0.1 | 6.3ms |
+| ROUND_small | 小 | TVM | 2.4 | 612.714 | 0.1 | 6.2ms |
+| | | | | | | |
+| RSQRT_large | 大 | rvv | 2.4 | 622.770 | 0.2 | 6.5ms |
+| RSQRT_large | 大 | TVM | 2.4 | 635.290 | 0.2 | 6.5ms |
+| | | | | | | |
+| RSQRT_medium | 中 | rvv | 2.4 | 619.081 | 0.1 | 6.2ms |
+| RSQRT_medium | 中 | TVM | 2.4 | 618.632 | 0.1 | 6.3ms |
+| | | | | | | |
+| RSQRT_small | 小 | rvv | 2.4 | 622.633 | 0.1 | 6.4ms |
+| RSQRT_small | 小 | TVM | 2.4 | 611.176 | 0.1 | 6.2ms |
+| | | | | | | |
+| SIN_large | 大 | rvv | 3.3 | 637.984 | 0.2 | 7.4ms |
+| SIN_large | 大 | TVM | 3.3 | 628.316 | 0.2 | 7.3ms |
+| | | | | | | |
+| SIN_medium | 中 | rvv | 3.1 | 625.761 | 0.2 | 6.6ms |
+| SIN_medium | 中 | TVM | 3.1 | 628.735 | 0.2 | 7.0ms |
+| | | | | | | |
+| SIN_small | 小 | rvv | 3.1 | 634.858 | 0.2 | 6.7ms |
+| SIN_small | 小 | TVM | 3.1 | 630.692 | 0.1 | 6.7ms |
+| | | | | | | |
+| SOFTMAX_large | 大 | rvv | 3.4 | 635.226 | 0.2 | 7.7ms |
+| SOFTMAX_large | 大 | TVM | 3.4 | 638.042 | 0.2 | 7.7ms |
+| | | | | | | |
+| SOFTMAX_medium | 中 | rvv | 3.2 | 631.798 | 0.2 | 6.9ms |
+| SOFTMAX_medium | 中 | TVM | 3.2 | 630.255 | 0.2 | 6.8ms |
+| | | | | | | |
+| SOFTMAX_small | 小 | rvv | 3.2 | 631.221 | 0.1 | 6.5ms |
+| SOFTMAX_small | 小 | TVM | 3.2 | 621.749 | 0.2 | 6.6ms |
+| | | | | | | |
+| SQRT_large | 大 | rvv | 2.4 | 630.143 | 0.2 | 6.5ms |
+| SQRT_large | 大 | TVM | 2.4 | 616.386 | 0.1 | 6.5ms |
+| | | | | | | |
+| SQRT_medium | 中 | rvv | 2.4 | 627.009 | 0.1 | 6.2ms |
+| SQRT_medium | 中 | TVM | 2.4 | 616.031 | 0.1 | 6.1ms |
+| | | | | | | |
+| SQRT_small | 小 | rvv | 2.4 | 610.893 | 0.1 | 6.1ms |
+| SQRT_small | 小 | TVM | 2.4 | 623.230 | 0.1 | 6.2ms |
+| | | | | | | |
+| SQUARED_DIFFERENCE_large | 大 | rvv | 2.5 | 641.674 | 0.1 | 6.6ms |
+| SQUARED_DIFFERENCE_large | 大 | TVM | 2.5 | 638.210 | 0.2 | 6.5ms |
+| | | | | | | |
+| SQUARED_DIFFERENCE_medium | 中 | rvv | 2.5 | 630.332 | 0.2 | 6.4ms |
+| SQUARED_DIFFERENCE_medium | 中 | TVM | 2.5 | 617.443 | 0.1 | 6.5ms |
+| | | | | | | |
+| SQUARED_DIFFERENCE_small | 小 | rvv | 2.5 | 624.038 | 0.2 | 6.3ms |
+| SQUARED_DIFFERENCE_small | 小 | TVM | 2.5 | 629.420 | 0.2 | 6.5ms |
+| | | | | | | |
+| SQUARE_large | 大 | rvv | 2.4 | 629.283 | 0.1 | 6.3ms |
+| SQUARE_large | 大 | TVM | 2.4 | 616.592 | 0.1 | 6.3ms |
+| | | | | | | |
+| SQUARE_medium | 中 | rvv | 2.4 | 613.652 | 0.1 | 6.4ms |
+| SQUARE_medium | 中 | TVM | 2.4 | 622.666 | 0.1 | 6.3ms |
+| | | | | | | |
+| SQUARE_small | 小 | rvv | 2.4 | 615.081 | 0.1 | 6.1ms |
+| SQUARE_small | 小 | TVM | 2.4 | 620.779 | 0.1 | 6.5ms |
+| | | | | | | |
+| SUB_large | 大 | rvv | 2.5 | 639.706 | 0.2 | 6.6ms |
+| SUB_large | 大 | TVM | 2.5 | 640.395 | 0.2 | 6.5ms |
+| | | | | | | |
+| SUB_medium | 中 | rvv | 2.5 | 627.907 | 0.1 | 6.6ms |
+| SUB_medium | 中 | TVM | 2.5 | 625.770 | 0.2 | 6.4ms |
+| | | | | | | |
+| SUB_small | 小 | rvv | 2.5 | 619.722 | 0.1 | 6.2ms |
+| SUB_small | 小 | TVM | 2.5 | 617.040 | 0.1 | 6.6ms |
+| | | | | | | |
+| SUM_large | 大 | rvv | 2.4 | 624.483 | 0.2 | 6.2ms |
+| SUM_large | 大 | TVM | 2.4 | 631.848 | 0.2 | 6.2ms |
+| | | | | | | |
+| SUM_medium | 中 | rvv | 2.4 | 615.976 | 0.1 | 6.3ms |
+| SUM_medium | 中 | TVM | 2.4 | 613.615 | 0.2 | 6.0ms |
+| | | | | | | |
+| SUM_small | 小 | rvv | 2.4 | 626.871 | 0.1 | 6.3ms |
+| SUM_small | 小 | TVM | 2.4 | 615.913 | 0.1 | 6.1ms |
+| | | | | | | |
+| TANH_large | 大 | rvv | 3.4 | 654.590 | 0.3 | 9.3ms |
+| TANH_large | 大 | TVM | 3.4 | 638.869 | 0.3 | 7.8ms |
+| | | | | | | |
+| TANH_medium | 中 | rvv | 3.2 | 647.386 | 0.2 | 7.2ms |
+| TANH_medium | 中 | TVM | 3.2 | 633.318 | 0.2 | 6.9ms |
+| | | | | | | |
+| TANH_small | 小 | rvv | 3.2 | 627.836 | 0.1 | 6.6ms |
+| TANH_small | 小 | TVM | 3.2 | 637.725 | 0.2 | 6.6ms |
+| | | | | | | |
+| avg_pool2d | 大 | rvv | 1154.5 | 796.682 | 0.9 | 11.7s |
+| avg_pool2d | 大 | TVM | 1154.5 | 792.723 | 0.9 | 13.6s |
+| | | | | | | |
+| avg_pool2d | 中 | rvv | 17.3 | 713.233 | 0.6 | 81.0ms |
+| avg_pool2d | 中 | TVM | 17.3 | 713.635 | 0.6 | 83.7ms |
+| | | | | | | |
+| avg_pool2d | 小 | rvv | 2.5 | 583.401 | 0.2 | 12.0ms |
+| avg_pool2d | 小 | TVM | 2.5 | 569.623 | 0.2 | 11.7ms |
+| | | | | | | |
+| batch_norm | 大 | rvv | 902.0 | 779.843 | 0.8 | 2.3s |
+| batch_norm | 大 | TVM | 902.0 | 794.639 | 0.9 | 4.0s |
+| | | | | | | |
+| batch_norm | 中 | rvv | 31.9 | 707.333 | 0.5 | 80.8ms |
+| batch_norm | 中 | TVM | 31.9 | 720.605 | 0.6 | 108.6ms |
+| | | | | | | |
+| batch_norm | 小 | rvv | 2.7 | 587.227 | 0.2 | 12.9ms |
+| batch_norm | 小 | TVM | 2.7 | 554.477 | 0.2 | 13.3ms |
+| | | | | | | |
+| bias_add | 大 | rvv | 901.9 | 780.612 | 0.7 | 1.7s |
+| bias_add | 大 | TVM | 901.9 | 778.182 | 0.7 | 1.6s |
+| | | | | | | |
+| bias_add | 中 | rvv | 22.7 | 695.695 | 0.5 | 64.0ms |
+| bias_add | 中 | TVM | 22.7 | 697.313 | 0.4 | 56.3ms |
+| | | | | | | |
+| bias_add | 小 | rvv | 2.5 | 582.986 | 0.1 | 12.0ms |
+| bias_add | 小 | TVM | 2.5 | 571.835 | 0.1 | 11.0ms |
+| | | | | | | |
+| conv2d | 大 | rvv | 170.8 | 779.315 | 1.0 | 307.6s |
+| conv2d | 大 | TVM | 170.8 | 793.897 | 1.0 | 338.0s |
+| | | | | | | |
+| conv2d | 中 | rvv | 10.4 | 770.266 | 0.9 | 2.2s |
+| conv2d | 中 | TVM | 10.5 | 771.770 | 0.9 | 2.6s |
+| | | | | | | |
+| conv2d | 小 | rvv | 2.7 | 626.726 | 0.3 | 17.7ms |
+| conv2d | 小 | TVM | 3.2 | 632.314 | 0.3 | 27.3ms |
+| | | | | | | |
+| dense | 大 | rvv | 100.2 | 786.758 | 0.9 | 21.1s |
+| dense | 大 | TVM | 100.1 | 790.617 | 1.0 | 33.0s |
+| | | | | | | |
+| dense | 中 | rvv | 16.2 | 789.501 | 0.9 | 1.2s |
+| dense | 中 | TVM | 16.3 | 789.575 | 0.9 | 1.6s |
+| | | | | | | |
+| dense | 小 | rvv | 2.8 | 665.204 | 0.4 | 29.7ms |
+| dense | 小 | TVM | 2.8 | 652.547 | 0.5 | 39.0ms |
+| | | | | | | |
+| matmul | 大 | rvv | 31.6 | 99.967 | 1.0 | 188.1s |
+| matmul | 大 | TVM | 31.7 | 99.968 | 1.0 | 189.7s |
+| | | | | | | |
+| matmul | 中 | rvv | 7.0 | 99.958 | 1.0 | 7.3s |
+| matmul | 中 | TVM | 7.0 | 99.919 | 1.0 | 7.1s |
+| | | | | | | |
+| matmul | 小 | rvv | 2.6 | 93.524 | 1.0 | 15.7ms |
+| matmul | 小 | TVM | 2.6 | 92.612 | 1.0 | 18.0ms |
+| | | | | | | |
+| relu | 大 | rvv | 901.9 | 771.375 | 0.7 | 1.7s |
+| relu | 大 | TVM | 901.9 | 776.525 | 0.7 | 1.6s |
+| | | | | | | |
+| relu | 中 | rvv | 22.7 | 668.248 | 0.3 | 59.3ms |
+| relu | 中 | TVM | 22.6 | 663.845 | 0.4 | 55.7ms |
+| | | | | | | |
+| softmax | 大 | rvv | 55.8 | 766.006 | 0.8 | 593.0ms |
+| softmax | 大 | TVM | 55.7 | 769.198 | 0.8 | 508.7ms |
+| | | | | | | |
+| softmax | 中 | rvv | 7.8 | 707.322 | 0.6 | 71.3ms |
+| softmax | 中 | TVM | 7.9 | 702.071 | 0.6 | 65.0ms |
+| | | | | | | |
+| softmax | 小 | rvv | 3.3 | 603.665 | 0.2 | 13.7ms |
+| softmax | 小 | TVM | 3.3 | 555.990 | 0.2 | 12.0ms |
+| | | | | | | |
