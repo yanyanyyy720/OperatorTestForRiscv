@@ -51,3 +51,16 @@ RVdoo 是一个用于测试深度学习算子在 RISC-V 架构上性能表现的
 当同时使用 --output选项和位置参数指定输出目录时，选项形式优先级更高
 默认情况下会保存输出数据，使用 --no-save-outputs可禁用此功能
 使用 --save-random-inputs可保存工具自动生成的随机输入数据
+## 2.测试TFLite
+./tflite_test <model_path> [output_dir]
+
+### 参数说明
+<model_path>: 必需的 TFLite 模型文件路径（.tflite 格式）
+
+[output_dir]: 可选的输出目录路径（默认：'outputs'）
+### 使用示例
+测试单个模型 ./tflite_test model.tflite
+
+指定输出目录：./tflite_test model.tflite ./results
+
+测试不同的模型：./tflite_test /path/to/your/model.tflite /path/to/output
